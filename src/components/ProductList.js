@@ -8,12 +8,12 @@ function ProductList() {
   const {
     allProducts: { product },
     setAllProducts,
-    filter: { sorting, bystock, byRating, byDelivery, bySearch },
+    filter: { sorting, bystock, byRating, byDelivery, bySearch, byCategory },
   } = useGlobalContext();
 
-  console.log(product);
   const transfromProduct = () => {
     let newData = product;
+
     if (sorting === "lowToHigh") {
       newData = newData.sort((a, b) =>
         Number(a.price) > Number(b.price) ? 1 : -1
@@ -38,6 +38,21 @@ function ProductList() {
         curr.name.toLowerCase().includes(bySearch)
       );
     }
+    if (byCategory === "mobile") {
+      newData = newData.filter((curr) => curr.category === "mobile");
+    }
+    if (byCategory === "laptop") {
+      newData = newData.filter((curr) => curr.category === "laptop");
+    }
+    if (byCategory === "computer") {
+      newData = newData.filter((curr) => curr.category === "computer");
+    }
+    if (byCategory === "watch") {
+      newData = newData.filter((curr) => curr.category === "watch");
+    }
+    if (byCategory === "accessories") {
+      newData = newData.filter((curr) => curr.category === "accessories");
+    }
     return newData;
   };
 
@@ -45,7 +60,7 @@ function ProductList() {
     <div className="content">
       <Sidebar />
       <div className="productContainer">
-        {transfromProduct().map((curr, index) => {
+        {transfromProduct().map((curr) => {
           return <SingleProduct key={curr.id} {...curr} />;
         })}
       </div>

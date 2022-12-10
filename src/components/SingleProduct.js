@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { useGlobalContext } from "../context/context";
@@ -13,14 +14,17 @@ function SingleProduct({
   fastDelivery,
 }) {
   //   console.log(name, price, image, inStock, rating, fastDelivery);
+  console.log(id);
   const {
     allProducts: { product, cart },
     setAllProducts,
   } = useGlobalContext();
   // console.log(cart);
-
+  // const handleProductDetail = () => {
+  //   const navigate = useNavigate();
+  //   navigate("/details/:name");
+  // };
   const handleAddBtn = () => {
-    console.log("ok");
     setAllProducts({
       product: [...product],
       cart: [
@@ -35,9 +39,17 @@ function SingleProduct({
     setAllProducts({ product: [...product], cart: newCart });
   };
 
+  console.log(id);
   return (
-    <div className="singleProduct">
-      <img src={image} alt={name}></img>
+    <Link to={`/details/${id}`} className="singleProduct">
+      <img className="singleProduct__image" src={image} alt={name} />
+      <div className="singleProduct__detail">
+        <div>{name}</div>
+        <div>Rs {price}</div>
+      </div>
+    </Link>
+    // <img className="singleProduct__image" src={image} alt={name} />
+    /* <img src={image} alt={name}></img>
       <div className="detail">
         <h3 className="productName">{name}</h3>
         <p className="productPrice">Rs {price}</p>
@@ -68,8 +80,7 @@ function SingleProduct({
             </button>
           )}
         </p>
-      </div>
-    </div>
+      </div> */
   );
 }
 

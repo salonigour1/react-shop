@@ -8,24 +8,40 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [allProducts, setAllProducts] = useState({ product: [], cart: [] });
+  const url = "https://api.pujakaitem.com/api/products";
   const [filter, setFilter] = useState({
     sorting: "",
     bystock: true,
     byRating: 0,
     byDelivery: false,
     bySearch: "",
+    byCategory: "all",
   });
-  const data = [...Array(20)].map(() => ({
-    id: faker.datatype.uuid(),
-    name: faker.commerce.productName(),
-    price: faker.commerce.price(),
-    image: faker.image.image(),
-    fastDelivery: faker.datatype.boolean(),
-    inStock: faker.helpers.arrayElement([0, 3, 5, 6]),
-    rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
-  }));
+  // const data = [...Array(20)].map(() => ({
+  //   id: faker.datatype.uuid(),
+  //   name: faker.commerce.productName(),
+  //   price: faker.commerce.price(),
+  //   image: faker.image.image(),
+  //   fastDelivery: faker.datatype.boolean(),
+  //   inStock: faker.helpers.arrayElement([0, 3, 5, 6, 20, 39]),
+  //   rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
+  // }));
   useEffect(() => {
-    setAllProducts({ product: data, cart: [] });
+    fetch("https://api.pujakaitem.com/api/products")
+      .then((res) => res.json())
+      .then((allData) => {
+        // console.log(allData);
+        const data = allData.map((curr, index) => {
+          return {
+            ...curr,
+            rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
+            inStock: faker.helpers.arrayElement([0, 3, 5, 6, 20, 39]),
+            fastDelivery: faker.datatype.boolean(),
+          };
+        });
+        // console.log(data);
+        setAllProducts({ product: data, cart: [] });
+      });
   }, []);
 
   // console.log(data);

@@ -16,7 +16,8 @@ function Rating() {
       {[...Array(5)].map((_, index) => {
         return index >= byRating ? (
           <FaRegStar
-            color="orange"
+            key={index}
+            color="black"
             fontSize="25px"
             onClick={() => {
               handleClick(index);
@@ -24,7 +25,8 @@ function Rating() {
           />
         ) : (
           <FaStar
-            color="orange"
+            key={index}
+            color="black"
             fontSize="25px"
             onClick={() => {
               handleClick(index);

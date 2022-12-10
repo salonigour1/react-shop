@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "../context/context";
 import Rating from "./Rating";
 import "./style.css";
 
 function Sidebar() {
-  const { filter, setFilter } = useGlobalContext();
+  const {
+    allProducts: { cart },
+    filter,
+    setFilter,
+  } = useGlobalContext();
 
-  const { sorting, bystock, byRating, byDelivery, bySearch } = filter;
+  const { sorting, bystock, byRating, byDelivery, bySearch, byCategory } =
+    filter;
 
-  const handleAscending = () => {
-    setFilter({ ...filter, sorting: "lowToHigh" });
-  };
-  const handleDescending = () => {
-    setFilter({ ...filter, sorting: "highToLow" });
+  const handleSorting = (name, value) => {
+    setFilter({ ...filter, sorting: value });
   };
   const handleOutOfStock = () => {
-    // console.log("here");
     setFilter({ ...filter, bystock: !bystock });
   };
   const handlefastDilevery = () => {
@@ -30,13 +31,100 @@ function Sidebar() {
       byRating: 0,
       byDelivery: false,
       bySearch: "",
+      byCategory: "all",
     });
   };
 
-  console.log(sorting, bystock, byRating, byDelivery, bySearch);
+  const handleCategory = (category) => {
+    // console.log(category);
+    setFilter({ ...filter, byCategory: category });
+    // console.log(filter);
+  };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setFilter({ ...filter, bySearch: e.target.value });
+  };
+  // console.log(sorting, bystock, byRating, byDelivery, bySearch);
   return (
     <div className="sidebar">
-      <div className="checking">
+      <input
+        className="sidebar__searchbar"
+        type="text"
+        placeholder="SEARCH..."
+        onChange={(e) => {
+          handleSearch(e);
+        }}
+      />
+      <div className="sidebar_title">Category</div>
+      <div className="sidebar__category" onClick={() => handleCategory("all")}>
+        All
+      </div>
+      <div
+        className="sidebar__category"
+        onClick={() => handleCategory("mobile")}
+      >
+        Mobile
+      </div>
+      <div
+        className="sidebar__category"
+        onClick={() => handleCategory("laptop")}
+      >
+        Laptop
+      </div>
+      <div
+        className="sidebar__category"
+        onClick={() => handleCategory("computer")}
+      >
+        Computer
+      </div>
+      <div
+        className="sidebar__category"
+        onClick={() => handleCategory("accessories")}
+      >
+        Accessories
+      </div>
+      <div
+        className="sidebar__category"
+        onClick={() => handleCategory("watch")}
+      >
+        Watch
+      </div>
+      <br />
+      <div className="sidebar__price">
+        <label className="sidebar_title">Price</label>
+        <br />
+        <select
+          className="lh"
+          name="sorting"
+          onChange={(e) => handleSorting(e.target.name, e.target.value)}
+        >
+          <option value="lowToHigh">Low to High</option>
+          <option value="highToLow">High to Low</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <div className="sidebar_title">Rating</div>
+        <Rating />
+      </div>
+      <br />
+      <input
+        type="checkbox"
+        id="includeOutOfStock"
+        onClick={handleOutOfStock}
+      />
+      <label className="sidebar__category" id="includeOutOfStock">
+        Include Out Of Stock
+      </label>
+      <br />
+      <input type="checkbox" id="fastDilevery" onClick={handlefastDilevery} />
+      <label className="sidebar__category" id="fastDilevery">
+        Fast Delivery Only
+      </label>
+      <button className="sidebar__button" onClick={handleClearAll}>
+        Clear Filter
+      </button>
+      {/* <div className="checking">
         <div className="sidebar-subtitle">Sort By</div>
         <p className="sidebar_title">Filter Products</p>
         <form>
@@ -74,7 +162,7 @@ function Sidebar() {
         <Rating />
 
         <button onClick={handleClearAll}>Clear Filter</button>
-      </div>
+      </div> */}
     </div>
   );
 }
