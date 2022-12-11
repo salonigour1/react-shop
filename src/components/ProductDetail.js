@@ -16,7 +16,7 @@ function ProductDetail() {
   console.log(product);
   useEffect(() => {
     product.filter((curr) => {
-      if ((curr.id = productId)) {
+      if (curr.id === productId) {
         setProductDetail({ ...curr });
       }
       return true;

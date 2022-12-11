@@ -40,6 +40,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div>
+            <Link className="navlink" to="/product">
+              Products
+            </Link>
+          </div>
+          <div>
             <Link className="navlink" to="/about">
               About
             </Link>
