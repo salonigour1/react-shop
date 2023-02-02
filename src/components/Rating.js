@@ -12,13 +12,13 @@ function Rating() {
   };
 
   return (
-    <>
+    <span className="rating">
       {[...Array(5)].map((_, index) => {
         return index >= byRating ? (
           <FaRegStar
             key={index}
-            color="black"
-            fontSize="25px"
+            color="grey"
+            fontSize="20px"
             onClick={() => {
               handleClick(index);
             }}
@@ -26,15 +26,15 @@ function Rating() {
         ) : (
           <FaStar
             key={index}
-            color="black"
-            fontSize="25px"
+            color="grey"
+            fontSize="20px"
             onClick={() => {
               handleClick(index);
             }}
           />
         );
       })}
-    </>
+    </span>
   );
 }
 

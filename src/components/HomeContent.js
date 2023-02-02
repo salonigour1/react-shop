@@ -4,31 +4,57 @@ import { Link } from "react-router-dom";
 import { MdOutlineSecurity } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { RiSecurePaymentFill } from "react-icons/ri";
-
-import { FaTruckMoving } from "react-icons/fa";
+import { FiShoppingCart, FiHeart } from "react-icons/fi";
+import { AiOutlineShopping } from "react-icons/ai";
 function HomeContent() {
   return (
     <div>
-      <div className="heroSection">
-        <div className="heroSection__content--heading">
-          <span>Welcom to</span>
+      <div className="hero_section">
+        <div className="hero_heading">
+          Over <span className="color">1000</span> products
           <br />
-          <span>WebShop</span>
-          <div className="heroSection__description">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus, aspernatur eius ipsam, omnis delectus dolorum modi
-            iure fugiat eos officia impedit soluta voluptate.
-          </div>
-          <Link to="/product" className="heroSection__button">
-            SHOP
+          Smart <span className="color">gadgets</span> for your comfort&nbsp;
+          <span className="color">&</span>&nbsp;convenience
+        </div>
+        <div className="hero_subheading">
+          The one-stop destination for all your shopping needs
+        </div>
+        <div>
+          <Link to="/product" className="cart_button">
+            <FiShoppingCart size="20px" /> <span>&nbsp;SHOP NOW</span>
           </Link>
         </div>
-        <div className="heroSection__content--image">
-          <img src={hero} className="heroSection__image" />
-          <div className="heroSection__background"></div>
+      </div>
+      <div className="categories">
+        <div>
+          <img src="https://opsg-img-cdn-gl.heytapimg.com/epb/202205/26/siwzk8lPjtX8oR4P.png" />
+          Mobile
+        </div>
+        <div>
+          <img src="https://images.pexels.com/photos/3178938/pexels-photo-3178938.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          Computer
+        </div>
+        <div>
+          <img src="https://images.prismic.io/frameworkmarketplace/46cbf974-cdff-4cd8-b761-8b4a3343f6c4_FW-chromebook-homepage-carousel.png?auto=compress,format" />{" "}
+          Laptop
+        </div>
+        <div>
+          <img src="https://images.pexels.com/photos/1697214/pexels-photo-1697214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          Watches
+        </div>
+
+        <div>
+          <img src="https://m.media-amazon.com/images/I/51oZ4ZKdzTL._SY606_.jpg" />
+          Accessories
         </div>
       </div>
-      <div className="services">
+      <div>Trending Products</div>
+      <div>
+        Check out our trending products. These products are worth your
+        attention.
+      </div>
+
+      {/* <div className="services">
         <div className="serviceheading">
           <div>Check Now !</div>
           <div>Our Feature Service</div>
@@ -74,8 +100,8 @@ function HomeContent() {
             </div>
           </Link>
         </div>
-      </div>
-      <div className="policy">
+      </div> */}
+      {/* <div className="policy">
         <div className="policy__first">
           <FaTruckMoving color="purple" size="32px" /> &nbsp;Fast and free
           delivery
@@ -94,7 +120,7 @@ function HomeContent() {
           <RiSecurePaymentFill color="purple" size="32px" /> &nbsp; Super-Secure
           payment system
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

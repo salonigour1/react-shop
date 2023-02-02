@@ -1,24 +1,28 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
+import { FiShoppingCart, FiHeart, FiSearch } from "react-icons/fi";
 import { useGlobalContext } from "../context/context";
-
+import { AiOutlineShopping } from "react-icons/ai";
 function SingleProduct({
   id,
   name,
   price,
   image,
   inStock,
+  company,
   rating,
   fastDelivery,
 }) {
   //   console.log(name, price, image, inStock, rating, fastDelivery);
-  console.log(id);
+
   const {
     allProducts: { product, cart },
     setAllProducts,
   } = useGlobalContext();
+  const [icons, setIcons] = useState(false);
   // console.log(cart);
   // const handleProductDetail = () => {
   //   const navigate = useNavigate();
@@ -38,16 +42,63 @@ function SingleProduct({
     console.log(newCart);
     setAllProducts({ product: [...product], cart: newCart });
   };
+  const numberWithCommas = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
 
-  console.log(id);
+  useEffect(() => {
+    console.log("heree");
+    const handleIcons = (e) => {
+      console.log(e);
+      setIcons(false);
+    };
+    document.body.addEventListener("onmouseover", handleIcons);
+    return () => document.body.removeEventListener("onmouseover", handleIcons);
+  }, []);
+
   return (
-    <Link to={`/details/${id}`} className="singleProduct">
-      <img className="singleProduct__image" src={image} alt={name} />
-      <div className="singleProduct__detail">
-        <div>{name}</div>
-        <div>Rs {price}</div>
+    <div className="singleProduct" onMouseOver={() => setIcons(true)}>
+      <img className="singleProduct_image" src={image} alt={name} />
+      <div className={`container ${!icons ? "visible" : ""}`}>
+        <div className="shop_icons">
+          <div onClick={handleAddBtn}>
+            <AiOutlineShopping size="20px" color="black" />
+          </div>
+          <div>
+            <FiHeart size="20px" color="black" />
+          </div>
+          <div>
+            <Link to={`/details/${id}`}>
+              <FiSearch size="20px" color="black" />
+            </Link>
+          </div>
+        </div>
       </div>
-    </Link>
+      <div className="singleProduct_detail">
+        <div className="name">{name}</div>
+        <div className="company">{company}</div>
+        <div className="price">Rs&nbsp;{numberWithCommas(Number(price))}</div>
+      </div>
+    </div>
+    // <div className="singleItem">
+    //   <img className="singleProduct_image" src={image} alt={name} />
+    //   <div className="hover_icons">
+    //     <div className="product_icon" onClick={handleAddBtn}>
+    //       <AiOutlineShopping size="20px" />
+    //     </div>
+    //     <div className="product_icon">
+    //       <FiHeart size="20px" onClick={handleThis} />
+    //     </div>
+    //     <Link to={`/details/${id}`} className="product_icon">
+    //       <FiSearch size="20px" color="black" />
+    //     </Link>
+    //   </div>
+    //   <div className="singleProduct_detail">
+    //     <div className="name">{name}</div>
+    //     <div className="company">{company}</div>
+    //     <div className="price">Rs&nbsp;{price}</div>
+    //   </div>
+    // </div>
     // <img className="singleProduct__image" src={image} alt={name} />
     /* <img src={image} alt={name}></img>
       <div className="detail">

@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
-import "./style.css";
+import "./styles.css";
 import logo from "../logo.png";
 import { Link } from "react-router-dom";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart, FiHeart } from "react-icons/fi";
+import { IoPersonOutline } from "react-icons/io5";
+import { AiOutlineShopping } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { useGlobalContext } from "../context/context";
 const Navbar = () => {
   // useEffect(() => {
@@ -27,83 +30,57 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="navbar">
+      <div className="Navbar">
         <div>
-          <Link to="/">
-            <img src={logo} className="logo" />
+          <Link to="/" className="logo">
+            WEB<span className="x">X</span>
           </Link>
         </div>
-        <div className="sideLink">
+        <div className="resp_menu">
+          <Link to="/checkout" className="cart_button">
+            <FiShoppingCart size="20px" /> <span>({cart.length})</span>
+          </Link>
           <div>
-            <Link className="navlink" to="/">
+            <GiHamburgerMenu size="35px" />
+          </div>
+        </div>
+        <div className="Menu">
+          <div>
+            <Link className="menu_link" to="/">
               Home
             </Link>
           </div>
+
           <div>
-            <Link className="navlink" to="/product">
-              Products
+            <Link className="menu_link" to="/product">
+              Shop
             </Link>
           </div>
           <div>
-            <Link className="navlink" to="/about">
-              About
+            <Link className="menu_link" to="/about">
+              About&nbsp;US
             </Link>
           </div>
           <div>
-            <Link className="navlink" to="/contact">
-              Contact
+            <Link className="menu_link" to="/contact">
+              Contact&nbsp;US
             </Link>
           </div>
-          <Link to="/checkout" className="navbar__cart">
-            <FiShoppingCart className="cartIcon" />
-            <span className="navbar__cartcount">{cart.length}</span>
+        </div>
+        <div className="cart">
+          <Link className="cartMenu">
+            <IoPersonOutline size="20px" />
+          </Link>
+          <Link className="cartMenu">
+            <FiHeart size="20px" />
+          </Link>
+          <Link to="/checkout" className="cart_button">
+            <AiOutlineShopping size="20px" />
+            <div className="mycart">MY CART({cart.length})</div>
           </Link>
         </div>
-
-        {/* <span>
-            <FiShoppingCart className="shopping-icon" /> */}
-        {/* <Link to="/checkout" className="navlink "> */}
-
-        {/* <FiShoppingCart className="shopping-icon" /> */}
-        {/* <span className="item-no">{cart.length}</span>
-         */}
-        {/* </Link> */}
-        {/* </span> */}
       </div>
     </header>
-    // <header className="navbar">
-    //   <div>
-    //     <Link to="/">
-    //       <img src={logo} className="logo" />
-    //     </Link>
-    //   </div>
-    //   <div>
-    //     <Link className="navlink" to="/">
-    //       Home
-    //     </Link>
-    //     <Link className="navlink" to="/about">
-    //       About
-    //     </Link>
-    //     <Link className="navlink" to="/contact">
-    //       Contact
-    //     </Link>
-    //     <div className="cart-icon">
-    //       <Link to="/checkout" className="navlink ">Okk
-    //         {/* <FiShoppingCart className="shopping-icon" /> */}
-    //         {/* <span className="item-no">{cart.length}</span>
-    //          */}
-    //       </Link>
-    //     </div>
-
-    //     {/* <input
-    //     type="text"
-    //     placeholder="Search here..."
-    //     onChange={(e) => {
-    //       handleSearch(e);
-    //     }}
-    //       /> */}
-    //   </div>
-    // </header>
   );
 };
 

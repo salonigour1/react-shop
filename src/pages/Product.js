@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import ShopPage from "../components/ShopPage";
 
-import ProductList from "../components/ProductList";
 function Product() {
   return (
     <div>
       <Navbar />
-      <ProductList />
+      <ShopPage />
     </div>
   );
 }

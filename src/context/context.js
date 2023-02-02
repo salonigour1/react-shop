@@ -31,15 +31,18 @@ const AppProvider = ({ children }) => {
       .then((res) => res.json())
       .then((allData) => {
         // console.log(allData);
-        const data = allData.map((curr, index) => {
+        const arr = [...allData, ...allData];
+        const data = arr.map((curr, index) => {
           return {
             ...curr,
             rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
             inStock: faker.helpers.arrayElement([0, 3, 5, 6, 20, 39]),
             fastDelivery: faker.datatype.boolean(),
+            id: faker.datatype.uuid(),
           };
         });
-        // console.log(data);
+
+        console.log(data);
         setAllProducts({ product: data, cart: [] });
       });
   }, []);
