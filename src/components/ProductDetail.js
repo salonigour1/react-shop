@@ -41,9 +41,23 @@ function ProductDetail() {
       product: [...product],
       cart: [
         ...cart,
-        { id, name, price, image, inStock, rating, fastDelivery, qty: 1 },
+        {
+          id,
+          name,
+          price,
+          company,
+          image,
+          inStock,
+          rating,
+          fastDelivery,
+          qty: 1,
+        },
       ],
     });
+  };
+  const numberWithCommas = (num) => {
+    let price = Number(num);
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   const handleRemoveBtn = () => {
     const newCart = cart.filter((curr) => curr.id !== id);
@@ -55,54 +69,57 @@ function ProductDetail() {
   return (
     <>
       <Navbar />
-      <div className="productDetail">
-        <div className="productDetail__Image">
-          <img src={image} alt={name} />
-        </div>
-        <div className="productDetail__Details">
-          <div className="productDetail__Details--name">{name}</div>
-          <div className="productDetail__Details--rating">
-            {[...Array(5)].map((_, index) => {
-              return index >= rating ? (
-                <FaRegStar color="orange" fontSize="15px" key={index} />
+      <div className="Product_detailsPage">
+        <div className="all_title">Product Details Page</div>
+        <div className="productDetail">
+          <div className="productDetail__Image">
+            <img src={image} alt={name} />
+          </div>
+          <div className="productDetail__Details">
+            <div className="productDetail__Details--name">{name}</div>
+            <div className="productDetail__Details--rating">
+              {[...Array(5)].map((_, index) => {
+                return index >= rating ? (
+                  <FaRegStar color="orange" fontSize="15px" key={index} />
+                ) : (
+                  <FaStar color="orange" fontSize="15px" key={index} />
+                );
+              })}
+              <span className="rating_text">(28 customer review)</span>
+            </div>
+            <div className="productDetail__Details--price">
+              {numberWithCommas(price)} Rs
+            </div>
+            <div className="productDetail__Details--brand">{company}</div>
+            <div className="productDescription">Product Description</div>
+            <div className="productDetail__Details--description">
+              {description}
+            </div>
+
+            <hr />
+            <div className="productDetail__Details--available">
+              <span className="grey">Availability </span>
+              {inStock > 0 ? "In Stock" : "Out of Stock"}
+            </div>
+            <div className="details_button">
+              {!cart.some((curr) => curr.id === id) ? (
+                <div
+                  disabled={!inStock}
+                  className="cart_button"
+                  onClick={handleAddBtn}
+                >
+                  {inStock ? "Add to Cart" : "Out of Stock"}
+                </div>
               ) : (
-                <FaStar color="orange" fontSize="15px" key={index} />
-              );
-            })}
-            <span className="rating_text">(28 customer review)</span>
+                <div className="cart_button" onClick={handleRemoveBtn}>
+                  Remove from Cart
+                </div>
+              )}
+              <Link to="/checkout" className="cart_button">
+                Go to Bag
+              </Link>
+            </div>
           </div>
-          <div className="productDetail__Details--price">MRP: {price} Rs</div>
-          <div className="productDetail__Details--description">
-            {description}
-          </div>
-          <br />
-          <hr />
-          <div className="productDetail__Details--available">
-            <span className="grey">Available:</span>
-            {inStock > 0 ? "In Stock" : "Out of Stock"}
-          </div>
-          <div className="productDetail__Details--brand">
-            <span className="grey">Brand:</span> {company}
-          </div>
-          {!cart.some((curr) => curr.id === id) ? (
-            <button
-              disabled={!inStock}
-              className="productDetail__Details--add"
-              onClick={handleAddBtn}
-            >
-              {inStock ? "Add to Cart" : "Out of Stock"}
-            </button>
-          ) : (
-            <button
-              className="productDetail__Details--remove"
-              onClick={handleRemoveBtn}
-            >
-              Remove from Cart
-            </button>
-          )}
-          <Link to="/checkout" className="productDetail__Details--btn">
-            Go to Bag
-          </Link>
         </div>
       </div>
     </>

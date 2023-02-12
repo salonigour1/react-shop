@@ -28,7 +28,11 @@ function SingleProduct({
   //   const navigate = useNavigate();
   //   navigate("/details/:name");
   // };
-  const handleAddBtn = () => {
+  const handleAddBtn = (id) => {
+    if (cart.filter((curr) => (curr.id === id ? true : false)).length !== 0) {
+      return;
+    }
+
     setAllProducts({
       product: [...product],
       cart: [
@@ -61,7 +65,7 @@ function SingleProduct({
       <img className="singleProduct_image" src={image} alt={name} />
       <div className={`container ${!icons ? "visible" : ""}`}>
         <div className="shop_icons">
-          <div onClick={handleAddBtn}>
+          <div onClick={() => handleAddBtn(id)}>
             <AiOutlineShopping size="20px" color="black" />
           </div>
           <div>
