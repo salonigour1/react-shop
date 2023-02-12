@@ -6,7 +6,15 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { FiShoppingCart, FiHeart } from "react-icons/fi";
 import { AiOutlineShopping } from "react-icons/ai";
+import { useGlobalContext } from "../context/context";
+import ProductsList from "./ProductsList";
+import { FaTruckMoving } from "react-icons/fa";
 function HomeContent() {
+  const {
+    allProducts: { product },
+  } = useGlobalContext();
+  const trending = [...product];
+  console.log(trending.splice(8), product);
   return (
     <div>
       <div className="hero_section">
@@ -48,12 +56,53 @@ function HomeContent() {
           Accessories
         </div>
       </div>
-      <div>Trending Products</div>
-      <div>
+      <div className="trending">Trending Products</div>
+      <div className="subtitle_trending">
         Check out our trending products. These products are worth your
         attention.
       </div>
+      <ProductsList transfromProduct={() => trending} />
+      {/* ------------------------------------------------ */}
+      <br />
 
+      <div className="policy">
+        <div>
+          <FaTruckMoving className="orange" color="black" size="32px" />{" "}
+          &nbsp;Fast and free delivery
+        </div>
+        <div>
+          <MdOutlineSecurity color="black" size="32px" /> &nbsp; Non-contact
+          shipping
+        </div>
+        <div>
+          <GiTakeMyMoney color="black" size="32px" /> &nbsp; Money-back
+          Guaranteed
+        </div>
+        <div>
+          <RiSecurePaymentFill color="black" size="32px" /> &nbsp; Super-Secure
+          payment system
+        </div>
+      </div>
+      {/* <div className="policy">
+        <div className="policy__first">
+          <FaTruckMoving color="black" size="32px" /> &nbsp;Fast and free
+          delivery
+        </div>
+        <div className="middle">
+          <div>
+            <MdOutlineSecurity color="black" size="32px" /> &nbsp; Non-contact
+            shipping
+          </div>
+          <div>
+            <GiTakeMyMoney color="black" size="32px" /> &nbsp; Money-back
+            Guaranteed
+          </div>
+        </div>
+        <div className="policy__first">
+          <RiSecurePaymentFill color="black" size="32px" /> &nbsp; Super-Secure
+          payment system
+        </div>
+      </div> */}
       {/* <div className="services">
         <div className="serviceheading">
           <div>Check Now !</div>
@@ -103,21 +152,21 @@ function HomeContent() {
       </div> */}
       {/* <div className="policy">
         <div className="policy__first">
-          <FaTruckMoving color="purple" size="32px" /> &nbsp;Fast and free
+          <FaTruckMoving color="black" size="32px" /> &nbsp;Fast and free
           delivery
         </div>
         <div className="middle">
           <div>
-            <MdOutlineSecurity color="purple" size="32px" /> &nbsp; Non-contact
+            <MdOutlineSecurity color="black" size="32px" /> &nbsp; Non-contact
             shipping
           </div>
           <div>
-            <GiTakeMyMoney color="purple" size="32px" /> &nbsp; Money-back
+            <GiTakeMyMoney color="black" size="32px" /> &nbsp; Money-back
             Guaranteed
           </div>
         </div>
         <div className="policy__first">
-          <RiSecurePaymentFill color="purple" size="32px" /> &nbsp; Super-Secure
+          <RiSecurePaymentFill color="black" size="32px" /> &nbsp; Super-Secure
           payment system
         </div>
       </div> */}
