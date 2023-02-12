@@ -117,23 +117,15 @@ html {
 .hero_section div {
   padding: 1.5rem;
 }
-.categories,
-.policy {
+.categories {
   display: flex;
   justify-content: space-around;
-  padding: 0rem 1.5rem;
-  margin: 0rem 1rem;
+  padding: 1.5rem;
+  margin: 1rem;
   box-sizing: border-box;
   flex-wrap: wrap;
 }
-.policy {
-  margin: 5rem;
-}
-.ok {
-  color: var(--orange);
-}
-.categories div,
-.policy div {
+.categories div {
   padding: 0.7rem;
   margin: 1rem;
   width: 25rem;
@@ -374,57 +366,6 @@ html {
 }
 .link {
   color: black;
-}
-.trending {
-  padding-top: 2rem;
-  font-size: 5rem;
-  font-weight: 600;
-}
-.subtitle_trending {
-  padding-top: 1rem;
-  font-size: 2rem;
-  font-weight: 400;
-  color: grey;
-}
-footer {
-  background: rgb(251, 110, 63);
-  background: radial-gradient(
-    circle,
-    rgba(251, 110, 63, 0.8941701680672269) 0%,
-    rgba(252, 70, 95, 1) 100%
-  );
-  padding: 1rem;
-}
-.footer_top,
-.footer_bottom {
-  text-transform: capitalize;
-  padding: 2rem;
-  color: white;
-  font-size: 2rem;
-  justify-content: space-around;
-  display: flex;
-}
-.footer_top input {
-  height: 3rem;
-  width: 30rem;
-}
-.icons a {
-  padding: 1rem;
-}
-.footer_bottom {
-}
-form {
-  display: flex;
-}
-.login_button {
-  cursor: pointer;
-  box-sizing: border-box;
-  padding: 0.5rem;
-  border: 0.5 solid black;
-  color: black;
-  background-color: aliceblue;
-}
-/* .link {
   text-decoration: none;
   display: inline-block;
 }
@@ -532,7 +473,7 @@ form {
   width: 100%;
   height: auto;
   /* margin: 3rem; */
-
+}
 .billing_heading {
   background: rgb(129, 128, 128);
   background: radial-gradient(

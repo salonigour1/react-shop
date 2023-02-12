@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/context";
 import Navbar from "./Navbar";
 import { AiFillDelete } from "react-icons/ai";
-import "./style.css";
+import "./styles.css";
 import { RiDeleteBinLine } from "react-icons/ri";
 import EmptyCart from "./EmptyCart";
 import checkout from "./checkout.jpg";
