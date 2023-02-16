@@ -125,19 +125,7 @@ html {
   box-sizing: border-box;
   flex-wrap: wrap;
 }
-.categories div {
-  padding: 0.7rem;
-  margin: 1rem;
-  width: 25rem;
-  height: 10rem;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2rem;
-  background-color: white;
-  cursor: pointer;
-}
+
 .categories,
 .policy {
   display: flex;
@@ -153,24 +141,26 @@ html {
 .ok {
   color: var(--orange);
 }
-.categories div,
+.catergory_card,
 .policy div {
+  box-sizing: border-box;
   padding: 0.7rem;
   margin: 1rem;
   width: 25rem;
   height: 10rem;
   font-size: 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-radius: 2rem;
   background-color: white;
   cursor: pointer;
+  padding: 0 2rem;
 }
 .categories img {
   margin: 1rem;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
 }
 .allProducts {
@@ -203,6 +193,11 @@ html {
   display: flex;
   width: 50vw;
   flex-direction: column;
+}
+.category_subheading {
+  color: gray;
+  font-size: 1.5rem;
+  padding: 0.5rem;
 }
 /* .singleProduct_image:hover {
   filter: blur(5px);
@@ -586,13 +581,20 @@ td {
   font-weight: 400;
   color: grey;
 }
+.category_subtitle {
+  padding-top: 1rem;
+  /* font-weight: 400; */
+  color: pink;
+}
 footer {
-  background: rgb(251, 110, 63);
-  background: radial-gradient(
+  background: rgb(157, 157, 157);
+  /* background: radial-gradient(
     circle,
-    rgba(251, 110, 63, 0.8941701680672269) 0%,
-    rgba(252, 70, 95, 1) 100%
-  );
+    rgba(157, 157, 157, 1) 0%,
+    rgba(128, 127, 126, 1) 28%,
+    rgba(181, 179, 179, 1) 77%,
+    rgba(176, 177, 177, 1) 100%
+  ); */
   padding: 1rem;
 }
 .footer_top,
@@ -604,9 +606,21 @@ footer {
   justify-content: space-around;
   display: flex;
 }
+.spinner {
+  width: 100vw;
+  height: 90vh;
+  color: var(--orange);
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
 .footer_top input {
-  height: 3rem;
+  height: 2.9rem;
   width: 30rem;
+  border-radius: 1rem;
+  border: none;
 }
 .icons a {
   padding: 1rem;
@@ -622,7 +636,9 @@ form {
   padding: 0.5rem;
   border: 0.5 solid black;
   color: black;
+  font-size: 1.7rem;
   background-color: aliceblue;
+  border-radius: 1rem;
 }
 /* .link {
   text-decoration: none;

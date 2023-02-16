@@ -30,9 +30,8 @@ const AppProvider = ({ children }) => {
     fetch("https://api.pujakaitem.com/api/products")
       .then((res) => res.json())
       .then((allData) => {
-        // console.log(allData);
         const arr = [...allData, ...allData];
-        const data = arr.map((curr, index) => {
+        const data = arr.map((curr) => {
           return {
             ...curr,
             rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
@@ -44,6 +43,7 @@ const AppProvider = ({ children }) => {
 
         console.log(data);
         setAllProducts({ product: data, cart: [] });
+        setLoading(false);
       });
   }, []);
 

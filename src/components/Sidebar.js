@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGlobalContext } from "../context/context";
 import Rating from "./Rating";
-import "./style.css";
+import "./styles.css";
 
 function Sidebar({ handleClearAll }) {
   const {
@@ -140,45 +140,6 @@ function Sidebar({ handleClearAll }) {
         <div className="cart_button" onClick={handleClearAll}>
           Clear Filter
         </div>
-        {/* <div className="checking">
-        <div className="sidebar-subtitle">Sort By</div>
-        <p className="sidebar_title">Filter Products</p>
-        <form>
-          <input
-            type="radio"
-            id="ascending"
-            name="sorting"
-            onClick={handleAscending}
-          />
-          <label htmlFor="ascending">Price:Low to High</label>
-          <br />
-          <input
-            type="radio"
-            id="descending"
-            name="sorting"
-            onClick={handleDescending}
-          />
-
-          <label htmlFor="descending">Price:High to Low</label>
-        </form>
-        <br></br>
-        <div className="sidebar-subtitle">Filter By</div>
-        <input
-          type="checkbox"
-          id="includeOutOfStock"
-          onClick={handleOutOfStock}
-        />
-        <label id="includeOutOfStock">Include Out Of Stock</label>
-        <br />
-        <input type="checkbox" id="fastDilevery" onClick={handlefastDilevery} />
-        <label id="fastDilevery">Fast Delivery Only</label>
-        <br />
-        <br></br>
-        <span className="rate">Rating: </span>
-        <Rating />
-
-        <button onClick={handleClearAll}>Clear Filter</button>
-      </div> */}
       </div>
     </>
   );

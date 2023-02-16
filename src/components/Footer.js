@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer>
-      <div class="footer_top">
+      <div className="footer_top">
         <div>
           <div>
             <Link to="/" className="logo">
@@ -33,7 +33,7 @@ function Footer() {
           </form>
         </div>
 
-        <div className="">
+        <div>
           <p>Follow us</p>
           <div className="icons">
             <a href="#">
@@ -64,7 +64,7 @@ function Footer() {
           2020 Creedo,Harvey Specter Agency Newyork,USA, All Rights reserved
         </div>
 
-        <div clasName="">privacy policy terms and condition</div>
+        <div className="">privacy policy terms and condition</div>
       </div>
     </footer>
   );

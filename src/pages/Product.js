@@ -1,13 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import ShopPage from "../components/ShopPage";
+import Spinner from "../components/Spinner";
+import { useGlobalContext } from "../context/context";
 
 function Product() {
+  const { loading } = useGlobalContext();
   return (
-    <div>
+    <>
       <Navbar />
-      <ShopPage />
-    </div>
+      {loading ? <Spinner /> : <ShopPage />}
+    </>
   );
 }
 
