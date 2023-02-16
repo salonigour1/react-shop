@@ -178,15 +178,34 @@ html {
 }
 .singleProduct {
   width: 35rem;
-  margin: 2rem;
+  height: 25rem;
+
   position: relative;
+}
+.Product_cart {
+  width: 35rem;
+  height: 35rem;
+  margin: 2rem;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  background: rgba(0, 0, 0, 0);
 }
 .singleProduct_image {
   width: 100%;
-  height: 25rem;
+  height: 100%;
   margin: 0;
   border-radius: 2rem;
   z-index: -1;
+}
+.singleProduct:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
 }
 .emptyCart {
   padding: 10rem 3rem;
@@ -213,7 +232,12 @@ html {
   cursor: pointer;
 }
 .shop_icons {
+  position: absolute;
   display: flex;
+  opacity: 0;
+  bottom: 2rem;
+  left: 20%;
+
   justify-content: center;
   transition: display 2s;
 }
@@ -228,11 +252,15 @@ html {
 }
 
 .shop_icons div {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
   margin: 1rem;
   border-radius: 50%;
 }
+.singleProduct:hover .shop_icons {
+  opacity: 1;
+}
+
 .shop_icons div:hover {
   background-color: rgb(249, 98, 98);
 }
