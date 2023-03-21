@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "./styles.css";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
-import { FiShoppingCart, FiHeart, FiSearch } from "react-icons/fi";
-import { useGlobalContext } from "../context/context";
-import { AiOutlineShopping } from "react-icons/ai";
+import React, { useEffect, useState } from 'react';
+import './styles.css';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+import { FaRegStar } from 'react-icons/fa';
+import { FiShoppingCart, FiHeart, FiSearch } from 'react-icons/fi';
+import { useGlobalContext } from '../context/context';
+import { AiOutlineShopping } from 'react-icons/ai';
 function SingleProduct({
   id,
   name,
@@ -47,42 +47,44 @@ function SingleProduct({
     setAllProducts({ product: [...product], cart: newCart });
   };
   const numberWithCommas = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   useEffect(() => {
-    console.log("heree");
+    console.log('heree');
     const handleIcons = (e) => {
       console.log(e);
       setIcons(false);
     };
-    document.body.addEventListener("onmouseover", handleIcons);
-    return () => document.body.removeEventListener("onmouseover", handleIcons);
+    document.body.addEventListener('onmouseover', handleIcons);
+    return () => document.body.removeEventListener('onmouseover', handleIcons);
   }, []);
 
   return (
-    <div className="Product_cart">
-      <div className="singleProduct">
-        <img className="singleProduct_image" src={image} alt={name} />
-        <div className="overlay"></div>
-        <div className="shop_icons">
-          <div onClick={() => handleAddBtn(id)}>
-            <AiOutlineShopping size="20px" color="black" />
-          </div>
-          <div>
-            <FiHeart size="20px" color="black" />
-          </div>
-          <div>
-            <Link to={`/details/${id}`}>
-              <FiSearch size="20px" color="black" />
-            </Link>
+    <div className='Product_cart'>
+      <Link to={`/details/${id}`}>
+        <div className='singleProduct'>
+          <img className='singleProduct_image' src={image} alt={name} />
+          <div className='overlay'></div>
+          <div className='shop_icons'>
+            <div onClick={() => handleAddBtn(id)}>
+              <AiOutlineShopping size='20px' color='black' />
+            </div>
+            <div>
+              <FiHeart size='20px' color='black' />
+            </div>
+            <div>
+              <Link to={`/details/${id}`}>
+                <FiSearch size='20px' color='black' />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="singleProduct_detail">
-        <div className="name">{name}</div>
-        <div className="company">{company}</div>
-        <div className="price">Rs&nbsp;{numberWithCommas(Number(price))}</div>
+      </Link>
+      <div className='singleProduct_detail'>
+        <div className='name'>{name}</div>
+        <div className='company'>{company}</div>
+        <div className='price'>Rs&nbsp;{numberWithCommas(Number(price))}</div>
       </div>
     </div>
   );

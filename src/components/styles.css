@@ -633,6 +633,7 @@ footer {
   font-size: 2rem;
   justify-content: space-around;
   display: flex;
+  flex-wrap: wrap;
 }
 .spinner {
   width: 100vw;
@@ -682,12 +683,33 @@ form {
   .sidebar {
     width: 35%;
   }
-  .singleProduct {
+  .Navbar {
+    justify-content: space-between;
+  }
+  .Menu {
+    position: absolute;
+    right: 0;
+    top: 6.6rem;
     width: 25rem;
+    height: 40vh;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    border: var(--grey);
+    background-color: white;
+    border-radius: 2rem;
+  }
+  .visible_menu {
+    display: flex;
   }
 }
 @media screen and (max-width: 700px) {
   .singleProduct {
     width: 40rem;
+  }
+  .Product_cart {
+    width: 35rem;
+    height: 35rem;
+    margin: 2rem;
   }
 }

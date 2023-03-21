@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useGlobalContext } from "../context/context";
-import Navbar from "./Navbar";
-import { AiFillDelete } from "react-icons/ai";
-import "./styles.css";
-import { RiDeleteBinLine } from "react-icons/ri";
-import EmptyCart from "./EmptyCart";
-import checkout from "./checkout.jpg";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../context/context';
+import Navbar from './Navbar';
+import { AiFillDelete } from 'react-icons/ai';
+import './styles.css';
+import { RiDeleteBinLine } from 'react-icons/ri';
+import EmptyCart from './EmptyCart';
+import checkout from './checkout.jpg';
 function Billing() {
   const [total, setTotal] = useState(0);
   const { allProducts, setAllProducts } = useGlobalContext();
@@ -61,7 +61,7 @@ function Billing() {
   };
   const numberWithCommas = (num) => {
     let price = Number(num);
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
   return (
     <>
@@ -69,10 +69,10 @@ function Billing() {
       {cart.length === 0 ? (
         <EmptyCart />
       ) : (
-        <div className="billing">
+        <div className='billing'>
           {/* <div className="billing_heading">My Bag</div> */}
-          <div className="billing_content">
-            <div className="billing_items">
+          <div className='billing_content'>
+            <div className='billing_items'>
               <table>
                 <tr>
                   <th>Product</th>
@@ -84,24 +84,24 @@ function Billing() {
                 {cart.map((curr) => (
                   <tr>
                     <td>
-                      <div className="billing_products">
+                      <div className='billing_products'>
                         <img
-                          className="billing_img"
+                          className='billing_img'
                           src={curr.image}
                           alt={curr.name}
                         />
-                        <div className="billing_item">
-                          <div className="product_name">{curr.name}</div>
+                        <div className='billing_item'>
+                          <div className='product_name'>{curr.name}</div>
                           <div>{curr.company}</div>
                         </div>
                       </div>
                     </td>
 
-                    <td className="billing_price">
+                    <td className='billing_price'>
                       Rs {numberWithCommas(curr.price)}
                     </td>
                     <td>
-                      <div className="quantity">
+                      <div className='quantity'>
                         <div onClick={() => handleDecrease(curr.id, curr.qty)}>
                           -
                         </div>
@@ -111,42 +111,42 @@ function Billing() {
                         </div>
                       </div>
                     </td>
-                    <td className="billing_price">
-                      Rs{" "}
-                      {numberWithCommas(Number(curr.price) * Number(curr.qty))}{" "}
+                    <td className='billing_price'>
+                      Rs{' '}
+                      {numberWithCommas(Number(curr.price) * Number(curr.qty))}{' '}
                     </td>
                     <td>
-                      {" "}
+                      {' '}
                       <RiDeleteBinLine
-                        color="black"
-                        fontSize="25px"
+                        color='black'
+                        fontSize='25px'
                         onClick={() => handleRemoveFromCart(curr.id)}
                       />
                     </td>
                   </tr>
                 ))}
               </table>
-              <div className="billing_btn">
-                <div className="cart_button">
-                  <Link to="/" className="link">
+              <div className='billing_btn'>
+                <div className='cart_button'>
+                  <Link to='/home' className='link'>
                     Continue Shopping
                   </Link>
                 </div>
-                <div className="cart_button">
-                  <Link to="/" className="link">
+                <div className='cart_button'>
+                  <Link to='/home' className='link'>
                     Proceed To CheckOut
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="billing_total">
-              <div className="sub_title">
+            <div className='billing_total'>
+              <div className='sub_title'>
                 THERE ARE {cart.length} ITEMS IN YOUR CART
               </div>
-              <div className="all_title">
+              <div className='all_title'>
                 Total : Rs {numberWithCommas(total)}
               </div>
-              <div className="sub_title">
+              <div className='sub_title'>
                 SHIPPING : Shipping & taxes calculated at checkout
               </div>
               <img src={checkout} />
