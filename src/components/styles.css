@@ -28,6 +28,7 @@ html {
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 500;
+  cursor: pointer;
 }
 .menu_link:hover {
   color: var(--orange);
@@ -108,7 +109,7 @@ html {
 .hero_section {
   z-index: 12;
   position: absolute;
-  top: 2rem;
+  top: 8rem;
   left: 0;
   right: 0;
   box-sizing: border-box;

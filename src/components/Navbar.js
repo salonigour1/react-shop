@@ -8,13 +8,6 @@ import { AiOutlineShopping } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useGlobalContext } from '../context/context';
 const Navbar = () => {
-  // useEffect(() => {
-  //   setAllProducts({
-  //     product: [...allProducts.product],
-  //     cart: [...allProducts.cart, { a: "a", b: "bc" }],
-  //   });
-  // }, []);
-
   const {
     allProducts: { cart },
     filter,
