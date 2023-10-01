@@ -9,14 +9,17 @@ import { AiOutlineShopping } from 'react-icons/ai';
 import { useGlobalContext } from '../context/context';
 import ProductsList from './ProductsList';
 import { FaTruckMoving } from 'react-icons/fa';
+import bg from './bg_img2.jpg';
 function HomeContent() {
   const {
     allProducts: { product },
   } = useGlobalContext();
   const trending = [...product];
-  console.log(trending.splice(8), product);
+
   return (
     <div>
+      {/* <img src={bg} className='bg_img' /> */}
+      <div className='bg_img'></div>
       <div className='hero_section'>
         <div className='hero_heading'>
           Over <span className='color'>1000</span> products
@@ -33,6 +36,7 @@ function HomeContent() {
           </Link>
         </div>
       </div>
+
       <div className='categories'>
         <div className='catergory_card'>
           <div>
@@ -72,12 +76,14 @@ function HomeContent() {
         </div>
       </div>
       <br></br>
-      <div className='trending'>Trending Products</div>
-      <div className='subtitle_trending'>
-        Check out our trending products. These products are worth your
-        attention.
+      <div className='prd_container'>
+        <div className='trending'>Trending Products</div>
+        <div className='subtitle_trending'>
+          Check out our trending products. These products are worth your
+          attention.
+        </div>
+        <ProductsList transfromProduct={() => trending.slice(0, 8)} />
       </div>
-      <ProductsList transfromProduct={() => trending} />
       {/* ------------------------------------------------ */}
       <br />
 

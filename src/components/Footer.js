@@ -1,17 +1,15 @@
-import React from "react";
-import { BsFacebook, BsInstagram, BsGoogle, BsTwitter } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { BsFacebook, BsInstagram, BsGoogle, BsTwitter } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer>
-      <div className="footer_top">
+      <div className='footer_top'>
         <div>
           <div>
-            <Link to="/" className="logo">
+            <Link to='/' className='logo'>
               WEB
-              <span style={{ color: "white" }} className="x">
-                X
-              </span>
+              <span className='x'>X</span>
             </Link>
           </div>
           <div>For more insights do subscribe.</div>
@@ -22,49 +20,46 @@ function Footer() {
           <br />
           <form>
             <input
-              className="email"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
+              className='email'
+              type='email'
+              id='email'
+              name='email'
+              placeholder='Enter your email'
             />
 
-            <div className="login_button">LOG IN</div>
+            <div className='login_button'>LOG IN</div>
           </form>
         </div>
 
         <div>
           <p>Follow us</p>
-          <div className="icons">
-            <a href="#">
-              <BsFacebook color="white" size="30px" />
+          <div className='icons'>
+            <a href='#'>
+              <BsFacebook color='#fb6e3f' size='30px' />
             </a>
-            <a href="#">
-              <BsInstagram color="white" size="30px" />
+            <a href='#'>
+              <BsInstagram color='#fb6e3f' size='30px' />
             </a>
-            <a href="#">
-              <BsGoogle color="white" size="30px" />
+            <a href='#'>
+              <BsGoogle color='#fb6e3f' size='30px' />
             </a>
-            <a href="#">
-              <BsTwitter color="white" size="30px" />
+            <a href='#'>
+              <BsTwitter color='#fb6e3f' size='30px' />
             </a>
           </div>
         </div>
-        <div className="">
-          <p>
-            call us
-            <br />
-            91 854162537
-          </p>
+        <div className=''>
+          <div style={{ color: '#fb6e3f' }}>call us </div>
+          91 854162537
         </div>
       </div>
       <hr />
-      <div className="footer_bottom">
-        <div className="">
+      <div className='footer_bottom'>
+        <div className=''>
           2020 Creedo,Harvey Specter Agency Newyork,USA, All Rights reserved
         </div>
 
-        <div className="">privacy policy terms and condition</div>
+        <div className=''>privacy policy terms and condition</div>
       </div>
     </footer>
   );
